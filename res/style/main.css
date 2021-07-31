@@ -72,7 +72,7 @@ section#content .content_box {
 }
 
 section#content .content_box:hover,
-section#content .conten_box:focus {
+section#content .content_box:focus {
     transform: scale(1.025);
     box-shadow: 0 0.5rem 0.75rem var(--content-box-accent-shadow-color);
 }
