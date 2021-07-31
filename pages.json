@@ -6,27 +6,27 @@
     },
     {
         "title": "평균",
-        "description": "B",
+        "description": "세상에서 가장 공평한 생명체, 평'균'",
         "markdownName": "AVERAGE"
     },
     {
         "title": "배수",
-        "description": "C",
+        "description": "배수보단 사과수를 달라 깔깔깔",
         "markdownName": "MULTIPLE"
     },
     {
         "title": "정수론",
-        "description": "D",
+        "description": "단어에 '론'만 붙이면 어려워지는 마술",
         "markdownName": "NUMBER"
     },
     {
         "title": "이진수/비트 연산",
-        "description": "E",
+        "description": "비트 주세요. 세제 말고요.",
         "markdownName": "BINARY"
     },
     {
         "title": "행렬",
-        "description": "F",
+        "description": "오와 열! 아... 아니 행과 열!?",
         "markdownName": "MATRIX"
     }
 ]
