@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PS Basics</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css">
+        <link href="res/style/main.css" rel="stylesheet" type="text/css">
+
+        <script src="res/scripts/common.js"></script>
+    </head>
+    <body>
+        <header id="title">
+            <a href="https://github.com/somnisomni/PS-Basics"><h1>PS Basics <img src="res/icons/github-circle.svg" /></h1></a>
+            <h3><strong>문제 해결<sup>Problem Solving</sup></strong>을 하는데에 알아두면 좋을 기본적인 지식들<sup>(주로 수학적 지식)</sup>을 개인적으로 정리 및 공부하기 위해 만든 리포지토리입니다!</h3>
+        </header>
+
+        <section id="content"></section>
+
+        <footer>
+            <div><span class="lightcolor">마크다운/LaTeX 렌더링</span> <a href="https://github.com/susam/texme">TeXMe</a></div>
+            <div><span class="lightcolor">웹 폰트</span> <a href="https://spoqa.github.io/spoqa-han-sans/ko-KR/">스포카 한 산스 네오</a></div>
+            <div><span class="lightcolor">아이콘</span> <a href="https://materialdesignicons.com">Material Design Icons</a></div>
+            <div><span class="lightcolor">♥ From</span> <a href="https://twitter.com/somni_somni">somni</a></div>
+        </footer>
+
+        <script>
+            (async () => {
+                const pages = JSON.parse(await xhrAsync("GET", "pages.json"));
+
+                function buildContentBox(itemObject) {
+                    const contentBoxAccentColor = randomColorHex(128, 64);
+    
+                    const parent = $ce("a");
+                    parent.classList.add("content_box")
+                    parent.classList.add("animation_hidden")
+                    parent.setAttribute("href", `content.html?markdown=${itemObject["markdownName"]}`);
+                    parent.setAttribute("style", `--content-box-accent-color: #${contentBoxAccentColor}; --content-box-accent-shadow-color: #${contentBoxAccentColor}66`);
+
+                    const titleDescParent = $ce("div");
+                    const title = $ce("div");
+                    title.classList.add("title");
+                    title.innerText = itemObject["title"];
+                    const desc = $ce("div");
+                    desc.classList.add("desc");
+                    desc.innerText = itemObject["description"];
+
+                    titleDescParent.append(title);
+                    titleDescParent.append(desc);
+                    parent.append(titleDescParent);
+
+                    const direction = $ce("div");
+                    direction.classList.add("direction");
+                    direction.innerText = `${itemObject["markdownName"]}.md 〉`;
+                    parent.append(direction);
+
+                    return parent
+                }
+
+                let animationDelay = 0;
+                pages.forEach(e => {
+                    const contentBox = buildContentBox(e);
+                    $id("content").append(contentBox);
+
+                    setTimeout(() => {
+                        contentBox.classList.remove("animation_hidden");
+                    }, 100 + animationDelay);
+                    animationDelay += 100
+                });
+            })();
+        </script>
+    </body>
+</html>

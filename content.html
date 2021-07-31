@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PS Basics</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+        <link href="res/style/main.css" rel="stylesheet" type="text/css">
+
+        <script>window.texme = { renderOnLoad: false, style: "plain" }</script>
+        <script src="https://cdn.jsdelivr.net/npm/texme"></script>
+        <script src="res/scripts/common.js"></script>
+    </head>
+    <body class="content">
+        <nav>
+            <a href="index.html" title="뒤로 가기"><img src="res/icons/arrow-left.svg" class="back_icon" /></a>
+        </nav>
+
+        <textarea id="markdown_area" style="display:none"></textarea>
+
+        <script>
+            (async () => {
+                // Load and render Markdown
+                const sectionName = window.location.href.split("?")[1].split("=")[1];
+                const markdown = await xhrAsync("GET", `markdown/${sectionName}.md`);
+
+                document.getElementById("markdown_area").innerHTML = markdown;
+
+                if(texme) {
+                    setTimeout(function() {
+                        texme.renderPage();
+                    }, 100);
+                }
+
+                // Add section name to document title
+                document.title += ` - ${sectionName}`;
+            })();
+        </script>
+    </body>
+</html>

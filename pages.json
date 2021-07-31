@@ -1,0 +1,32 @@
+[
+    {
+        "title": "기본적인 것들",
+        "description": "정말정말 너무너무 기본적인 지식들",
+        "markdownName": "BASIC"
+    },
+    {
+        "title": "평균",
+        "description": "B",
+        "markdownName": "AVERAGE"
+    },
+    {
+        "title": "배수",
+        "description": "C",
+        "markdownName": "MULTIPLE"
+    },
+    {
+        "title": "정수론",
+        "description": "D",
+        "markdownName": "NUMBER"
+    },
+    {
+        "title": "이진수/비트 연산",
+        "description": "E",
+        "markdownName": "BINARY"
+    },
+    {
+        "title": "행렬",
+        "description": "F",
+        "markdownName": "MATRIX"
+    }
+]
